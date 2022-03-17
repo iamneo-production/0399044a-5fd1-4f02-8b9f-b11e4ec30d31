@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #C5D8A4;">
+        <a class="navbar-brand" routerLink="#"
+            style="padding-left: 10px; margin-left: 30px; color: #534340;">YogaAcademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="justify-content:space-around">
+            <ul class="navbar-nav">
+                <li class="nav-item active"
+                    style="padding: 0px 20px 0px 25px; color: #534340; border-bottom: 2px solid #534340 ;">
+                    <a class="nav-link" routerLink="/admin/academy" style="color: #534340;">Academy</a>
+                </li>
+                <li class="nav-item" style="padding: 0px 50px 0px 25px;">
+                    <a class="nav-link" routerLink="/admin/course" style="color: #534340;">Course</a>
+                </li>
+                <li class="nav-item" style="padding: 0px 50px 0px 25px;">
+                    <a class="nav-link" routerLink="/admin/student" style="color: #534340;">Student</a>
+                </li>
+                <li class="nav-item" style="margin-left: 100pt; padding: 0px 50px 0px 100px;">
+                    <a class="nav-link" routerLink="/login" style="color: #534340; margin-left: 100pt; ">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="form-group" style="margin: 3% auto; width: 66%; display: flex; justify-content: center;">
+        <button routerLink="/admin/addAcademy" class="btn btn-rounded"
+            style="border-radius:50px 50px 50px 50px; border: 2px solid #C5D8A4; background-color:#C5D8A4 ; font-family: Verdana, Geneva, Tahoma, sans-serif;">Add
+            Academy</button>
+    </div>
+    <div class="main-search-input-wrap" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <div class="main-search-input fl-wrap" style="margin-top: 30px; border: 2px solid #C5D8A4;">
+            <div class="main-search-input-item"> <input type="text" placeholder="Search Academy..."
+                    [(ngModel)]="searchKeyword" /> </div>
+            <button class="main-search-button" (click)="search()">Search</button>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div *ngFor="let academy of academies | searchFilter:searchKeyword" class="card"
+        style="width: 15rem; margin-left: 20px; margin-top: 20px; display: inline-block; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <img src={{academy.imageUrl}} class="card-img-top">
+        <div class="card-body" style="background-color:#C5D8A4;">
+            <p class="card-text" style="margin-left: 0%;">{{academy.academyName}}</p>
+            <div class="rating" style="display: inline-block;">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+            <p class="card-text">Place:{{academy.location}}</p>
+            <div style="display:flex; justify-content:space-between">
+                <button (click)="deleteAcademy(academy.id)">🗑</button>
+                <button (click)="updateAcademy(academy.id)">&#9998;</button>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
