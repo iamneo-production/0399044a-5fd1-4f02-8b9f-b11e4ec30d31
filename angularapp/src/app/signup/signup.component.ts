@@ -46,7 +46,10 @@ export class SignupComponent implements OnInit {
             this.student.mobileNumber = res.mobileNo;
             console.log(this.student)
             this.studentService.addStudent(this.student).subscribe({
-              next: (responce: any) => { this.route.navigateByUrl('/login'); }
+              next: (responce: any) => {
+                localStorage.setItem('value', responce);
+                this.route.navigateByUrl('/login');
+              }
             })
 
           },
@@ -55,7 +58,10 @@ export class SignupComponent implements OnInit {
       }
       else if (this.user.type === 'admin') {
         this.service.signupAdmin(this.user).subscribe({
-          next: (res) => this.route.navigateByUrl('/login'),
+          next: (res) => {
+            localStorage.setItem('value', res);;
+            this.route.navigateByUrl('/login')
+          },
           error: (err) => console.log(err)
         })
       }

@@ -9,6 +9,7 @@ import { EditcourseComponent } from './Admin/admincourse/editcourse/editcourse.c
 import { AdminstudentComponent } from './Admin/adminstudent/adminstudent.component';
 import { EditstudentComponent } from './Admin/adminstudent/editstudent/editstudent.component';
 import { StudentComponent } from './Admin/adminstudent/student/student.component';
+import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ViewacademyComponent } from './User/viewacademy/viewacademy.component';
@@ -17,18 +18,18 @@ import { ViewcourseComponent } from './User/viewcourse/viewcourse.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'admin/academy', component: AdminacademyComponent },
-  { path: 'admin/addAcademy', component: AcademyComponent },
-  { path: 'admin/editAcademy/:id', component: EditacademyComponent },
-  { path: 'admin/course', component: AdmincourseComponent },
-  { path: 'admin/addCourse', component: CourseComponent },
-  { path: 'admin/editCourse/:id', component: EditcourseComponent },
-  { path: 'admin/student', component: AdminstudentComponent },
-  { path: 'admin/addStudent', component: StudentComponent },
-  { path: 'admin/editStudent/:id', component: EditstudentComponent },
-  { path: 'user/academy/:id', component: ViewacademyComponent },
-  { path: 'user/course', component: ViewcourseComponent },
-  { path: "", redirectTo: '/login', pathMatch: "full" }
+  { path: 'admin/academy', component: AdminacademyComponent, canActivate: [AuthGuard] },
+  { path: 'admin/addAcademy', component: AcademyComponent, canActivate: [AuthGuard] },
+  { path: 'admin/editAcademy/:id', component: EditacademyComponent, canActivate: [AuthGuard] },
+  { path: 'admin/course', component: AdmincourseComponent, canActivate: [AuthGuard] },
+  { path: 'admin/addCourse', component: CourseComponent, canActivate: [AuthGuard] },
+  { path: 'admin/editCourse/:id', component: EditcourseComponent, canActivate: [AuthGuard] },
+  { path: 'admin/student', component: AdminstudentComponent, canActivate: [AuthGuard] },
+  { path: 'admin/addStudent', component: StudentComponent, canActivate: [AuthGuard] },
+  { path: 'admin/editStudent/:id', component: EditstudentComponent, canActivate: [AuthGuard] },
+  { path: 'user/academy/:id', component: ViewacademyComponent, canActivate: [AuthGuard] },
+  { path: 'user/course/:id', component: ViewcourseComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: "full" }
 ];
 
 @NgModule({

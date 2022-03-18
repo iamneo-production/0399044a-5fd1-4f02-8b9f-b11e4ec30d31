@@ -1,0 +1,5 @@
+package com.yogaAdmission.demo.repository;
+
+public interface StudentRepository {
+
+}

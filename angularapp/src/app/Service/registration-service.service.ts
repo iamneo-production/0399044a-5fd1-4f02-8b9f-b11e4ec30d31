@@ -29,6 +29,14 @@ export class RegistrationServiceService {
     return this.http.post<any>("http://localhost:8081/admin/signup", user);
   }
 
+  loggedIn() {
+    return !!localStorage.getItem('value')
+  }
+
+  getToken() {
+    return localStorage.getItem('value')
+  }
+
 
 
 

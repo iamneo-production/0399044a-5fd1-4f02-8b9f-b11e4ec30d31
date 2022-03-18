@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +19,13 @@ import { AdminstudentComponent } from './Admin/adminstudent/adminstudent.compone
 import { StudentComponent } from './Admin/adminstudent/student/student.component';
 import { EditstudentComponent } from './Admin/adminstudent/editstudent/editstudent.component';
 import { ViewcourseComponent } from './User/viewcourse/viewcourse.component';
+import { RegistrationServiceService } from './Service/registration-service.service';
+import { AcademyService } from './Service/academy.service';
+import { CourseService } from './Service/course.service';
+import { StudentService } from './Service/student.service';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
+
 
 
 @NgModule({
@@ -47,7 +54,13 @@ import { ViewcourseComponent } from './User/viewcourse/viewcourse.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RegistrationServiceService, AcademyService, CourseService, StudentService, AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

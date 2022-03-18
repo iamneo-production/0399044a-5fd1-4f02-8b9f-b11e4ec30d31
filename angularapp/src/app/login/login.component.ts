@@ -27,25 +27,35 @@ export class LoginComponent implements OnInit {
 
 
   loginSubmit() {
-    let person: User =
-      this.service.getType(this.user).subscribe({
-        next: (res: any) => {
+    let person: User
+    this.service.getType(this.user).subscribe({
+      next: (res: any) => {
+        if (res === null) {
+          alert('Register Yourself And Login')
+        } else {
           person = res;
           if (person.type === 'admin') {
             this.service.loginAdminFromRemote(this.user, person.type).subscribe({
-              next: (res: any) => this.route.navigateByUrl('admin/academy'),
-              error: (err: any) => console.log(err)
-            });
-          } else if (person.type === 'user') {
-            this.service.loginUserFromRemote(this.user, person.type).subscribe({
-              next: (res: any) => this.route.navigate(['user/academy', person.id]),
+              next: (res: any) => {
+                localStorage.setItem('value', res);
+                this.route.navigateByUrl('admin/academy')
+              },
               error: (err: any) => console.log(err)
             });
           }
-        },
-        error: (err: any) => console.log("error hello")
-      });
-
+          else if (person.type === 'user') {
+            this.service.loginUserFromRemote(this.user, person.type).subscribe({
+              next: (res: any) => {
+                localStorage.setItem('value', res);
+                this.route.navigate(['user/academy', person.id])
+              },
+              error: (err: any) => console.log(err)
+            });
+          }
+        }
+      },
+      error: (err: any) => console.log(err)
+    });
   }
 
 }
