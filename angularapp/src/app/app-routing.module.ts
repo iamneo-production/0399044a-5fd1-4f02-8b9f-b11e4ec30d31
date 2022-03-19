@@ -12,6 +12,7 @@ import { StudentComponent } from './Admin/adminstudent/student/student.component
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { EnrolledcourseComponent } from './User/enrolledcourse/enrolledcourse.component';
 import { ViewacademyComponent } from './User/viewacademy/viewacademy.component';
 import { ViewcourseComponent } from './User/viewcourse/viewcourse.component';
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'admin/editStudent/:id', component: EditstudentComponent, canActivate: [AuthGuard] },
   { path: 'user/academy/:id', component: ViewacademyComponent, canActivate: [AuthGuard] },
   { path: 'user/course/:id', component: ViewcourseComponent, canActivate: [AuthGuard] },
+  { path: 'user/enrolledcourse/:id', component: EnrolledcourseComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: "full" }
 ];
 

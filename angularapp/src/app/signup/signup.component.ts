@@ -42,9 +42,9 @@ export class SignupComponent implements OnInit {
       if (this.user.type === 'user') {
         this.service.signupUser(this.user).subscribe({
           next: (res) => {
+            this.student.studentId = res.id
             this.student.studentName = res.userName;
             this.student.mobileNumber = res.mobileNo;
-            console.log(this.student)
             this.studentService.addStudent(this.student).subscribe({
               next: (responce: any) => {
                 localStorage.setItem('value', responce);

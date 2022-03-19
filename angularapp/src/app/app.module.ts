@@ -25,6 +25,7 @@ import { CourseService } from './Service/course.service';
 import { StudentService } from './Service/student.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { EnrolledcourseComponent } from './User/enrolledcourse/enrolledcourse.component';
 
 
 
@@ -45,6 +46,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     StudentComponent,
     EditstudentComponent,
     ViewcourseComponent,
+    EnrolledcourseComponent,
 
   ],
   imports: [

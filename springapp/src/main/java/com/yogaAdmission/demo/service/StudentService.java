@@ -31,17 +31,18 @@ public class StudentService {
 	}
 	
 	public Student updateStudent(Student student) {
-		Student existingStudent = repository.findById(student.getStudentId()).orElse(null);
+		Student existingStudent = repository.findByStudentId(student.getStudentId());
 		existingStudent.setStudentId(student.getStudentId());
 		existingStudent.setStudentName(student.getStudentName());
 		existingStudent.setMobileNumber(student.getMobileNumber());
+		existingStudent.setAddress(student.getAddress());
 		existingStudent.setStudentDOB(student.getStudentDOB());
 		existingStudent.setAge(student.getAge());
 		return repository.save(existingStudent);
 	}
 	
-	public Optional<Student> getStudentId(int id) {
-		return repository.findById(id);
+	public Student getStudentId(int id) {
+		return repository.findByStudentId(id);
 	}
 
 	

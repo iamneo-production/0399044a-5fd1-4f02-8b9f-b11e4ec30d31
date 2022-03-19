@@ -12,12 +12,11 @@ public class Student {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String mobileNumber;
 	private int studentId;
 	private String studentName;
 	private String studentDOB;
 	private String address;
-	private String mobileNumber;
 	private int age;
 
 

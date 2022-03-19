@@ -2,8 +2,10 @@ package com.yogaAdmission.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yogaAdmission.demo.model.User;
@@ -76,6 +78,11 @@ public class RegistrationController {
 			throw new Exception("Invalid Login");
 		}
 		return tempUser;
+	}
+	
+	@DeleteMapping("/admin/deleteStudentByAdmin")
+	public void deleteStudent(@RequestParam int id) {
+		service.deleteUser(id);
 	}
 	
 }

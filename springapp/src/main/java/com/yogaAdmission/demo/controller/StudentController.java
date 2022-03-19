@@ -47,7 +47,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/admin/getStudent")
-	public Optional<Student> getStudentById(@RequestParam int id) {
+	public Student getStudentById(@RequestParam int id) {
 		return service.getStudentId(id);
 	}
 

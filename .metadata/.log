@@ -329,3 +329,15 @@ Contains: Missing org.springframework.boot:spring-boot-starter-security:jar:sour
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-18 15:51:30.486
 !MESSAGE executing callback sts4.classpath.ixbmNbjr SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-18 22:40:37.652
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ixbmNbjr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-18 22:40:37.695
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.ixbmNbjr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-18 22:40:37.695
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-18 22:40:37.696
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ixbmNbjr => OK

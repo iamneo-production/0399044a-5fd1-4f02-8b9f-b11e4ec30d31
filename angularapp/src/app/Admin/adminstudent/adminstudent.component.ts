@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RegistrationServiceService } from 'src/app/Service/registration-service.service';
 import { StudentService } from 'src/app/Service/student.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminstudentComponent implements OnInit {
   searchKeyword: string = '';
   students = [];
 
-  constructor(private service: StudentService, private route: Router) { }
+  constructor(private service: StudentService, private route: Router, private regService: RegistrationServiceService) { }
 
   ngOnInit(): void {
     this.viewStudent()
@@ -32,6 +33,10 @@ export class AdminstudentComponent implements OnInit {
   deleteStudent(id: number) {
     this.service.deleteStudent(id).subscribe(
       (res: any) => { this.viewStudent() },
+      (err: any) => console.log(err)
+    )
+    this.regService.deleteStudentByAdmin(id).subscribe(
+      (res: any) => console.log('deleted form registered User table'),
       (err: any) => console.log(err)
     )
   }

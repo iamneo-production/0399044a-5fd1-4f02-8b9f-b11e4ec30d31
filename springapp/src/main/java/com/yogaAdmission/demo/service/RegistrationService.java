@@ -23,5 +23,9 @@ public class RegistrationService {
 	public User fetchUserByEmailAndPassword(String email, String password) {
 		return repository.findByEmailIdAndPassword(email,password);
 	}
+	
+	public void deleteUser(int id) {
+		repository.deleteById(id);
+	}
 
 }

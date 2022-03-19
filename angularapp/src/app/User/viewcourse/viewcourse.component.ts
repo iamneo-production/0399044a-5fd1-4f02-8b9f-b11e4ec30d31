@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Admission } from 'src/app/Model/admission';
 import { CourseService } from 'src/app/Service/course.service';
 import { StudentService } from 'src/app/Service/student.service';
 
@@ -9,6 +10,8 @@ import { StudentService } from 'src/app/Service/student.service';
   styleUrls: ['./viewcourse.component.css']
 })
 export class ViewcourseComponent implements OnInit {
+
+  admission: Admission = new Admission();
   searchKeyword: String = '';
   id!: number
   courses = [];
@@ -33,9 +36,14 @@ export class ViewcourseComponent implements OnInit {
   enroll(id: number) {
     this.courseService.getCourseById(id).subscribe({
       next: (res: any) => {
-        console.log(res);
+        this.admission.courseId = res.id
+        this.admission.courseName = res.courseName
         this.studentService.getStudentById(this.id).subscribe({
-          next: (res: any) => console.log(res),
+          next: (res: any) => { 
+            this.admission.studentId = res.studentId; 
+            this.admission.studentName = res.studentName; 
+            console.log(this.admission);
+           },
           error: (err: any) => console.log(err)
         })
       },

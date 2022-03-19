@@ -29,6 +29,12 @@ export class RegistrationServiceService {
     return this.http.post<any>("http://localhost:8081/admin/signup", user);
   }
 
+  public deleteStudentByAdmin(id: number) {
+    return this.http.delete<any>("http://localhost:8081/admin/deleteStudentByAdmin?id=" + id)
+  }
+
+
+
   loggedIn() {
     return !!localStorage.getItem('value')
   }
