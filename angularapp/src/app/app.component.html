@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="card mt-5" style="align-items:center">
+      <h1>Course Dashboard</h1> 
+  </div>
+
+  <div class="card mt-2" style="padding:20px;">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)"> 
+      <div class="form-group">
+        <label for="coursename">Course Name :</label>
+        <input type="text" #coursename (ngModel)="coursename" name="coursename" id="coursename" class="form-control" placeholder="Course Name">
+      </div>
+      <div class="form-group">
+        <label for="name">Course Duration :</label>
+        <input type="text" #courseduration (ngModel)="courseduration" name="courseduration" id="courseduration" class="form-control" placeholder="Course Duration">
+      </div>
+      <div class="form-group">
+        <label for="name">Course Timings :</label>
+        <input type="text" #coursetimings (ngModel)="coursetimings" name="coursetimings" id="coursetimings" class="form-control" placeholder="Course Timings">
+      </div>
+      <div class="form-group">
+        <label for="name">No of Students :</label>
+        <input type="number" #noofstudents (ngModel)="noofstudents" name="noofstudents" id="noofstudents" class="form-control" placeholder="No of Students">
+      </div>
+      <div class="form-group">
+        <label for="name">Course Description :</label>
+        <input type="text" #coursedescription (ngModel)="coursedescription" name="coursedescription" id="coursedescription" class="form-control" placeholder="Course Description">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary w-100">
+      </div>
+    </form>
+  </div>
+  <div class="card mt-5" style="align-items:center">
+    <h1>Available Courses</h1> 
+  </div>
+  <div class="card mt-2" *ngFor="let course of courseDetails">
+    <div class="card-body">
+      <h6 >Course ID: {{course.courseid}}</h6>
+      <h6 >Course Name: {{course.coursename}}</h6>
+      <h6 >Course Duration: {{course.courseduration}}</h6>
+      <h6 >Course Timings: {{course.coursetimings}}</h6>
+      <h6 >No of Students: {{course.noofstudents}}</h6>
+      <h6 >Course Description: {{course.coursedescription}}</h6>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(course)">Edit</button>
+      <button type="button" class="btn btn-danger float-end" (click)="deleteCourse(course)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Student</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #updateForm="ngForm" (ngSubmit)="updateStudent()"> 
+          <div class="form-group">
+            <label for="name">Course ID :</label>
+            <input type="text" disabled #courseid [(ngModel)]="studentToUpdate.courseid" name="courseid" id="courseid" class="form-control" placeholder="Course ID">
+          </div>
+          <div class="form-group">
+            <label for="name">Course Name :</label>
+            <input type="text" #coursename [(ngModel)]="studentToUpdate.coursename" name="coursename" id="coursename" class="form-control" placeholder="Course Name">
+          </div>
+          <div class="form-group">
+            <label for="name">Course Duration :</label>
+            <input type="text" #courseduration [(ngModel)]="studentToUpdate.courseduration" name="courseduration" id="courseduration" class="form-control" placeholder="Course Duration">
+          </div>
+          <div class="form-group">
+            <label for="name">Course Timings :</label>
+            <input type="text" #coursetimings [(ngModel)]="studentToUpdate.coursetimings" name="coursetimings" id="coursetimings" class="form-control" placeholder="Course Timings">
+          </div>
+          <div class="form-group">
+            <label for="name">No of Students :</label>
+            <input type="text" #noofstudents [(ngModel)]="studentToUpdate.noofstudents" name="noofstudents" id="noofstudents" class="form-control" placeholder="No of Students">
+          </div>
+          <div class="form-group">
+            <label for="name">Course Description :</label>
+            <input type="text" #coursedescription [(ngModel)]="studentToUpdate.coursedescription" name="coursedescription" id="coursedescription" class="form-control" placeholder="Course Description">
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary w-100">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
