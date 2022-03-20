@@ -1,4 +1,4 @@
-package com.youtube.student;
+package com.course.student;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
