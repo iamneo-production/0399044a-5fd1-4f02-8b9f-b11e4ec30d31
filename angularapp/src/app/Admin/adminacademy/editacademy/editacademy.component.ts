@@ -31,4 +31,9 @@ export class EditacademyComponent implements OnInit {
     )
   }
 
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdmissionService } from 'src/app/Service/admission.service';
 
 @Component({
   selector: 'app-enrolledcourse',
@@ -10,33 +11,33 @@ export class EnrolledcourseComponent implements OnInit {
 
   id!: number
 
-  courses = [
-    {
-      name: 'helath',
-      time: "5 - 6",
-    },
-    {
-      name: 'helath',
-      time: "5 - 6",
-    },
-    {
-      name: 'helath',
-      time: "5 - 6",
-    },
-    {
-      name: 'helath',
-      time: "5 - 6",
-    },
-  ]
+  Admissions: any = [];
 
-  constructor(private router: ActivatedRoute) { }
+  constructor(private route: Router, private router: ActivatedRoute, private service: AdmissionService) { }
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
+
+    this.viewCourses()
   }
 
-  delete() {
-    console.log("delete")
+  private viewCourses() {
+    this.service.viewAdmission().subscribe({
+      next: (res: any) => { this.Admissions = res },
+      error: (err: any) => console.log(err)
+    })
+  }
+
+  delete(id: number) {
+    this.service.deleteAdmission(id).subscribe({
+      next: (res: any) => this.viewCourses(),
+      error: (err: any) => console.log('Course Not Deleted')
+    })
+  }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
   }
 
 }

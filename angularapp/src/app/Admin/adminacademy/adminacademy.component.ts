@@ -39,4 +39,9 @@ export class AdminacademyComponent implements OnInit {
     this.route.navigate(['admin/editAcademy', id])
   }
 
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
+
 }

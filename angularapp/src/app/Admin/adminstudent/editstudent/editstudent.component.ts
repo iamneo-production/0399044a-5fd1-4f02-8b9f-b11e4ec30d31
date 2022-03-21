@@ -31,4 +31,9 @@ export class EditstudentComponent implements OnInit {
     )
   }
 
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
+
 }

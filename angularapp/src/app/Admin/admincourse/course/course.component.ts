@@ -38,4 +38,9 @@ export class CourseComponent implements OnInit {
     })
 
   }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
 }

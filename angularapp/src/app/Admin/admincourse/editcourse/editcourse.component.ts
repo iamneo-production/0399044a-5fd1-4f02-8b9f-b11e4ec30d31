@@ -30,4 +30,9 @@ export class EditcourseComponent implements OnInit {
       (error: any) => console.log(error)
     )
   }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
 }

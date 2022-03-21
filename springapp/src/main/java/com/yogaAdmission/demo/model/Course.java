@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +12,7 @@ import javax.persistence.Table;
 public class Course {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="course_seq")
-	@SequenceGenerator(name = "course_seq", sequenceName = "course_seq", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String courseName;
 	private String courseSpan;

@@ -39,4 +39,9 @@ export class AdmincourseComponent implements OnInit {
   updateCourse(id: number) {
     this.route.navigate(['admin/editCourse', id])
   }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
 }

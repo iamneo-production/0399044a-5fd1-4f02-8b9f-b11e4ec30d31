@@ -21,7 +21,7 @@ export class StudentComponent implements OnInit {
     pincode: ''
   }
 
-  constructor(private router: Router, private service: StudentService) { }
+  constructor(private route: Router, private router: Router, private service: StudentService) { }
 
   ngOnInit(): void {
 
@@ -68,6 +68,11 @@ export class StudentComponent implements OnInit {
       alert('Fill all fields')
     }
 
+  }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
   }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AcademyService } from 'src/app/Service/academy.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ViewacademyComponent implements OnInit {
   academies = [];
   id!: number
 
-  constructor(private service: AcademyService, private router: ActivatedRoute) { }
+  constructor(private route: Router, private service: AcademyService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id']
@@ -29,6 +29,11 @@ export class ViewacademyComponent implements OnInit {
 
   search() {
     alert("Search Not Found, Search for Appropriate Academy");
+  }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
   }
 
 }

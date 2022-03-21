@@ -23,20 +23,21 @@
                         Course</a>
                 </li>
                 <li class="nav-item" style="margin-left: 100pt; padding: 0px 50px 0px 100px;">
-                    <a class="nav-link" routerLink="/login" style="color: #534340; margin-left: 100pt; ">Logout</a>
+                    <a class="nav-link" (click)="logout()"
+                        style="cursor: pointer;color: #534340; margin-left: 100pt; ">Logout</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div *ngFor="let course of courses " class="card"
+    <div *ngFor="let admission of Admissions " class="card"
         style="width: 18rem; margin-left: 20px; margin-top: 20px; display: inline-block; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">
         <div class="card-body" style="background-color:#C5D8A4;">
-            <p class="card-text" style="margin-left: 0%;">Course Name:{{course.name}}</p>
-            <p class="card-text" style="margin-left: 0%;">Course Duration:{{course.time}}</p>
-            <p class="card-text" style="margin-left: 0%;">Course Available Time:</p>
+            <p class="card-text" style="margin-left: 0%;">Course Id:{{admission.courseId}}</p>
+            <p class="card-text" style="margin-left: 0%;">Course Name:{{admission.courseName}}</p>
+            <p class="card-text" style="margin-left: 0%;">Course Join Date:{{admission.joinDate}}</p>
             <div style="display:flex; justify-content:center">
-                <button (click)="delete()" class="btn btn-success">Delete</button>
+                <button (click)="delete(admission.id)" class="btn btn-success">Delete</button>
             </div>
         </div>
     </div>

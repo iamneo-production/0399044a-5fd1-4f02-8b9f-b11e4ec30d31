@@ -30,12 +30,13 @@ export class AdminstudentComponent implements OnInit {
     alert("Search Not Found, Search for Appropriate Academy");
   }
 
-  deleteStudent(id: number) {
-    this.service.deleteStudent(id).subscribe(
+  deleteStudent(id: String) {
+    let aid: number = +id
+    this.service.deleteStudent(aid).subscribe(
       (res: any) => { this.viewStudent() },
       (err: any) => console.log(err)
     )
-    this.regService.deleteStudentByAdmin(id).subscribe(
+    this.regService.deleteStudentByAdmin(aid).subscribe(
       (res: any) => console.log('deleted form registered User table'),
       (err: any) => console.log(err)
     )
@@ -43,6 +44,11 @@ export class AdminstudentComponent implements OnInit {
 
   updateStudent(id: number) {
     this.route.navigate(['admin/editStudent', id])
+  }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
   }
 
 }

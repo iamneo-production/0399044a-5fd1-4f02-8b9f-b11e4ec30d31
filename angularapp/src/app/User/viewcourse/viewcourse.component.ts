@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Admission } from 'src/app/Model/admission';
+import { AdmissionService } from 'src/app/Service/admission.service';
 import { CourseService } from 'src/app/Service/course.service';
 import { StudentService } from 'src/app/Service/student.service';
 
@@ -15,7 +16,7 @@ export class ViewcourseComponent implements OnInit {
   searchKeyword: String = '';
   id!: number
   courses = [];
-  constructor(private courseService: CourseService, private studentService: StudentService, private router: ActivatedRoute) { }
+  constructor(private route: Router, private courseService: CourseService, private admissionService: AdmissionService, private studentService: StudentService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
@@ -34,22 +35,33 @@ export class ViewcourseComponent implements OnInit {
   }
 
   enroll(id: number) {
+    var today = new Date();
+    var date = today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear();
     this.courseService.getCourseById(id).subscribe({
       next: (res: any) => {
+        this.admission.joinDate = date
         this.admission.courseId = res.id
         this.admission.courseName = res.courseName
         this.studentService.getStudentById(this.id).subscribe({
-          next: (res: any) => { 
-            this.admission.studentId = res.studentId; 
-            this.admission.studentName = res.studentName; 
-            console.log(this.admission);
-           },
+          next: (res: any) => {
+            this.admission.studentId = res.studentId;
+            this.admission.studentName = res.studentName;
+            this.admissionService.addAdmission(this.admission).subscribe({
+              next: (res: any) => alert('Course Enrolled'),
+              error: (err: any) => console.log(err)
+            })
+          },
           error: (err: any) => console.log(err)
         })
       },
       error: (err: any) => console.log(err)
     })
 
+  }
+
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
   }
 
 }

@@ -38,4 +38,9 @@ export class AcademyComponent implements OnInit {
 
   }
 
+  logout() {
+    localStorage.removeItem('value');
+    this.route.navigateByUrl('/login')
+  }
+
 }
