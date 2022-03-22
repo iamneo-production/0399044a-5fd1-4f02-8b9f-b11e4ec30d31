@@ -1,5 +1,6 @@
 export class Student {
 
+    id!: number
     studentId!: number;
     studentName!: String;
     studentDOB!: String;

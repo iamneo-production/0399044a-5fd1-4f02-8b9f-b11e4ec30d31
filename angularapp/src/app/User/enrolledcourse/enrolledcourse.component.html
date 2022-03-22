@@ -3,7 +3,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg" style="background-color: #C5D8A4;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #C5D8A4;">
         <a class="navbar-brand" routerLink="/user/enrolledcourse"
             style="padding-left: 10px; margin-left: 30px; color: #534340;">YogaAcademy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -30,14 +30,14 @@
         </div>
     </nav>
 
-    <div *ngFor="let admission of Admissions " class="card"
+    <div *ngFor="let sample of samples " class="card"
         style="width: 18rem; margin-left: 20px; margin-top: 20px; display: inline-block; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">
         <div class="card-body" style="background-color:#C5D8A4;">
-            <p class="card-text" style="margin-left: 0%;">Course Id:{{admission.courseId}}</p>
-            <p class="card-text" style="margin-left: 0%;">Course Name:{{admission.courseName}}</p>
-            <p class="card-text" style="margin-left: 0%;">Course Join Date:{{admission.joinDate}}</p>
+            <p class="card-text" style="margin-left: 0%;">Course Id:{{sample.courseId}}</p>
+            <p class="card-text" style="margin-left: 0%;">Course Name:{{sample.courseName}}</p>
+            <p class="card-text" style="margin-left: 0%;">Course Join Date:{{sample.joinDate}}</p>
             <div style="display:flex; justify-content:center">
-                <button (click)="delete(admission.id)" class="btn btn-success">Delete</button>
+                <button (click)="delete(sample.id)" class="btn btn-success">Delete</button>
             </div>
         </div>
     </div>

@@ -9,9 +9,10 @@ import { AdmissionService } from 'src/app/Service/admission.service';
 })
 export class EnrolledcourseComponent implements OnInit {
 
-  id!: number
+  id!: any
 
   Admissions: any = [];
+  samples: any = [];
 
   constructor(private route: Router, private router: ActivatedRoute, private service: AdmissionService) { }
 
@@ -23,14 +24,22 @@ export class EnrolledcourseComponent implements OnInit {
 
   private viewCourses() {
     this.service.viewAdmission().subscribe({
-      next: (res: any) => { this.Admissions = res },
+      next: (res: any) => {
+        this.Admissions = res;
+        for (let i = 0; i < this.Admissions.length; i++) {
+          var sample = this.Admissions[i]
+          if (sample.studentId == this.id) {
+            this.samples.push(sample)
+          }
+        }
+      },
       error: (err: any) => console.log(err)
     })
   }
 
   delete(id: number) {
     this.service.deleteAdmission(id).subscribe({
-      next: (res: any) => this.viewCourses(),
+      next: (res: any) => { alert('Course Deleted'); this.viewCourses() },
       error: (err: any) => console.log('Course Not Deleted')
     })
   }

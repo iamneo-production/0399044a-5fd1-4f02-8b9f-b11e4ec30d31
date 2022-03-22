@@ -3,7 +3,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg" style="background-color: #C5D8A4;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #C5D8A4;">
         <a class="navbar-brand" routerLink="/admin/course"
             style="padding-left: 10px; margin-left: 30px; color: #534340;">YogaAcademy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -58,7 +58,7 @@
             <tr *ngFor="let student of students | searchFilter:searchKeyword" style="text-align: center;">
                 <td> {{ student.studentId }} </td>
                 <td> {{ student.studentName }} </td>
-                <td> Hath Yoga </td>
+                <td> {{student.enrolledCourse}}</td>
                 <td> {{ student.mobileNumber }} </td>
 
                 <td>

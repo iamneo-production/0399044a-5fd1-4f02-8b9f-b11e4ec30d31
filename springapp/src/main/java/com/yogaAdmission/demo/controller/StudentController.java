@@ -37,7 +37,7 @@ public class StudentController {
 	}
 	
 	@DeleteMapping("/admin/deleteStudent")
-	public void deleteCourse(@RequestParam int id) {
+	public void deleteStudentById(@RequestParam int id) {
 			service.deleteStudent(id);	
 	}
 	

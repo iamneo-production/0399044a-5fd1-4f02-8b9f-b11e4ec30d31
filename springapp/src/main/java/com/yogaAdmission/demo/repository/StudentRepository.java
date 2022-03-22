@@ -7,6 +7,5 @@ import com.yogaAdmission.demo.model.Student;
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 	
 	public Student findByStudentId(int id);
-	public Student deleteByStudentId(int id);
 
 }

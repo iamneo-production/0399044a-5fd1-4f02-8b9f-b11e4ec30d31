@@ -4,7 +4,6 @@ package com.yogaAdmission.demo.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +25,8 @@ public class StudentService {
 		return repository.save(student);
 	}
 	
-	@Transactional
 	public void deleteStudent(int id) {
-		repository.deleteByStudentId(id);
+		repository.deleteById(id);
 	}
 	
 	public Student updateStudent(Student student) {

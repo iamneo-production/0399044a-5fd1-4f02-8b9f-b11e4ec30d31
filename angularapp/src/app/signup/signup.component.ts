@@ -47,6 +47,7 @@ export class SignupComponent implements OnInit {
             this.student.mobileNumber = res.mobileNo;
             this.studentService.addStudent(this.student).subscribe({
               next: (responce: any) => {
+                alert('User Registered')
                 localStorage.setItem('value', responce);
                 this.route.navigateByUrl('/login');
               }
@@ -59,6 +60,7 @@ export class SignupComponent implements OnInit {
       else if (this.user.type === 'admin') {
         this.service.signupAdmin(this.user).subscribe({
           next: (res) => {
+            alert('Admin Registered')
             localStorage.setItem('value', res);;
             this.route.navigateByUrl('/login')
           },
