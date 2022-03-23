@@ -1547,3 +1547,15 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 18:56:49.366
 !MESSAGE executing callback sts4.classpath.yLbGaKIg SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 22:03:44.789
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.yLbGaKIg
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 22:03:44.792
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.yLbGaKIg
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 22:03:44.793
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 22:03:44.793
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.yLbGaKIg => OK
