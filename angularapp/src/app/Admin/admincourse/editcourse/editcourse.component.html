@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-image: url('assets/image/Course.jpg'); background-size: cover;">
+    <nav class="navbar navbar-expand-lg navbar-light"
+        style="background-color: #C5D8A4; position:top; width: 100%; top:0; left: 0; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <a class="navbar-brand" routerLink="#"
+            style="padding-left: 10px; margin-left: 30px; color: #534340;">YogaAcademy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="justify-content:space-around">
+            <ul class="navbar-nav">
+                <li class="nav-item active" style="padding: 0px 50px 0px 25px;">
+                    <a class="nav-link" routerLink="/admin/academy" style="color: #534340; ">Academy</a>
+                </li>
+                <li class="nav-item" style="padding: 0px 50px 0px 25px;">
+                    <a class="nav-link" href="/admin/course"
+                        style="color: #534340; border-bottom: 2px solid #534340 ;">Course</a>
+                </li>
+                <li class="nav-item" style="padding: 0px 50px 0px 25px;">
+                    <a class="nav-link" routerLink="/admin/student" style="color: #534340;">Student</a>
+                </li>
+                <li class="nav-item" style="margin-left: 100pt; padding: 0px 50px 0px 100px;">
+                    <a class="nav-link" (click)="logout()"
+                        style="cursor: pointer;color: #534340; margin-left: 100pt; ">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h2 class="form-title"
+        style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin: 58px 0px 15px 0px; color: white; opacity: .8;">
+        Update Course</h2>
+    <div style="display: flex; justify-content: center;">
+
+        <form #updateForm="ngForm"
+            style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            <div class="form-group" style="opacity: .6;">
+
+                <input type="text" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px;;"
+                    placeholder="Enter Course Name" [(ngModel)]="course.courseName" name="CourseName">
+
+                <input type="text" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px;"
+                    placeholder="Enter the Course Duration" [(ngModel)]="course.courseSpan" name="CourseSpan">
+
+                <input type="text" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px; "
+                    placeholder="Enter the Course Time" [(ngModel)]="course.courseTime" name="CourseTime">
+
+                <input type="number" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px;"
+                    placeholder="Enter Student Count" [(ngModel)]="course.studentCount" name="StudentCount">
+
+
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Enter Course Description" rows="3"
+                        [(ngModel)]="course.description" name="description"></textarea>
+                </div>
+
+                <div style="display:flex; justify-content: space-between;">
+                    <div class="form-group" style="margin: 5% auto; width: 66%;">
+                        <button type="button" (click)="submitEditCourse()" class="btn btn-rounded"
+                            style="border-radius:50px 50px 50px 50px; border: 2px solid white; color: white;">Update
+                            Course</button>
+                    </div>
+                    <div class="form-group" style="margin: 5% auto; width: 66%;">
+                        <button routerLink="/admin/course" class="btn btn-rounded"
+                            style="border-radius:50px 50px 50px 50px; border: 2px solid white; color: white;">Back To
+                            Course</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+
+</html>
