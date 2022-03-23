@@ -1,0 +1,5 @@
+package com.yogaAdmission.demo.controller;
+
+public class StudentController {
+
+}

@@ -1,0 +1,42 @@
+package com.yogaAdmission.demo.service;
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.yogaAdmission.demo.model.Student;
+import com.yogaAdmission.demo.repository.StudentRepository;
+
+@Service
+public class StudentService {
+
+	@Autowired
+	private StudentRepository repository;
+	
+	
+	public Student saveStudent(Student student) {
+		return repository.save(student);
+	}
+	
+	
+	public void deleteStudent(int id) {
+		repository.deleteById(id);
+	}
+	
+	public Student updateStudent(Student student) {
+		Student existingStudent = repository.findById(student.getStudentId()).orElse(null);
+		existingStudent.setStudentId(student.getStudentId());
+		existingStudent.setStudentName(student.getStudentName());
+		existingStudent.setMobileNumber(student.getMobileNumber());
+		existingStudent.setStudentDOB(student.getStudentDOB());
+		existingStudent.setAge(student.getAge());
+		return repository.save(existingStudent);
+	}
+	
+	public Optional<Student> getStudnetId(int id) {
+		return repository.findById(id);
+	}
+}

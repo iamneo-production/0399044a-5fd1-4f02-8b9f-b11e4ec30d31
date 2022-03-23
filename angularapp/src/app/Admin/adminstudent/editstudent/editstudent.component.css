@@ -1,0 +1,34 @@
+h3{
+    font-size: 25pt;         
+    font-style: normal; 
+    font-weight: bold; 
+    color:SlateBlue;
+    text-align: center; 
+    text-decoration: underline
+  }
+  
+  table{
+    color:black; 
+    font-size: 11pt; 
+    font-style: normal;
+    font-weight: bold;
+    background-color: pink; 
+    border: 10px solid papayawhip;
+    border-radius: 15px;
+    border-collapse: collapse; 
+    display:inline-flex ;
+  }
+  table.inner{
+    border: 0px;
+  }
+
+form{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 0%;
+}
+
+input{
+    border: 1px solid black;
+}
