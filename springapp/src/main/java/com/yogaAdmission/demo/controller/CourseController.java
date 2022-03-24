@@ -34,8 +34,8 @@ public class CourseController {
 	}
 	
 	@PutMapping("/admin/updateCourse")
-	public Course updateCourse(@RequestBody Course course){
-		return service.updateCourse(course);
+	public Course editCourse(@RequestBody Course course){
+		return service.editCourse(course);
 	}
 	
 	@DeleteMapping("/admin/deleteCourse")
