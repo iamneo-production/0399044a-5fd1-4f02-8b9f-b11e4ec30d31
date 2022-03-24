@@ -72,7 +72,7 @@ export class AdminstudentComponent implements OnInit {
     this.route.navigate(['admin/editStudent', id])
   }
 
-  logout() {
+  sessionLogout() {
     sessionStorage.removeItem('value');
     this.route.navigateByUrl('/login')
   }

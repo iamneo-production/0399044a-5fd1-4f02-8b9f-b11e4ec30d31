@@ -26,14 +26,14 @@ public class StudentController {
 	private StudentService service;
 	
 	@PostMapping("/admin/addStudent")
-	public Student addStudent(@RequestBody Student student) {
-		return service.saveStudent(student);
+	public Student saveStudent(@RequestBody Student stu) {
+		return service.saveStudent(stu);
 	}
 	
 
 	@PutMapping("/admin/updateStudent")
-	public Student updateStudent(@RequestBody Student student){
-		return service.updateStudent(student);
+	public Student editStudent(@RequestBody Student stu){
+		return service.updateStudent(stu);
 	}
 	
 	@DeleteMapping("/admin/deleteStudent")
