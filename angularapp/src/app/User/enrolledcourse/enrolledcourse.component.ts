@@ -37,14 +37,14 @@ export class EnrolledcourseComponent implements OnInit {
     })
   }
 
-  delete(id: number) {
+  deleteUser(id: number) {
     this.service.deleteAdmission(id).subscribe({
       next: (res: any) => { alert('Course Deleted'); this.viewCourses() },
       error: (err: any) => console.log('Course Not Deleted')
     })
   }
 
-  logout() {
+  logoutUser() {
     sessionStorage.removeItem('value');
     this.route.navigateByUrl('/login')
   }
