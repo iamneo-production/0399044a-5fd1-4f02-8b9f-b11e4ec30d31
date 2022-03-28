@@ -47,7 +47,7 @@ export class AdminstudentComponent implements OnInit {
     )
   }
 
-  search() {
+  Alert() {
     alert("Search Not Found, Search for Appropriate Student");
   }
 
