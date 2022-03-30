@@ -29,7 +29,7 @@ export class CourseComponent implements OnInit {
 
   })
 
-  submitAddCourse() {
+  submitTheAddedCourse() {
     console.log(this.course);
     this.service.addCourse(this.course).subscribe({
       next: () => this.route.navigateByUrl('admin/course'),
