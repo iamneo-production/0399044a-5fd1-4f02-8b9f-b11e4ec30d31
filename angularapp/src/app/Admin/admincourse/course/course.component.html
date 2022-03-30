@@ -41,21 +41,21 @@
             <div class="form-group" style="opacity: .9;">
 
                 <input type="text" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px;;"
-                    placeholder="Enter Course Name" [(ngModel)]="course.courseName" formControlName="CourseName">
+                    placeholder="Enter Course Name" [(ngModel)]="course.nameOfCourse" formControlName="NameOfCourse">
 
                 <input type="text" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px;"
-                    placeholder="Enter Course Duration" [(ngModel)]="course.courseSpan" formControlName="CourseSpan">
+                    placeholder="Enter Course Duration" [(ngModel)]="course.spanOfCourse" formControlName="SpanOfCourse">
 
                 <input type="text" class="form-control" size="70" style="margin: 5% auto; width: 66%; height: 70px; "
-                    placeholder="Enter Course Time" [(ngModel)]="course.courseTime" formControlName="CourseTime">
+                    placeholder="Enter Course Time" [(ngModel)]="course.timeOfCourse" formControlName="TimeOfCourse">
 
                 <input required type="number" class="form-control" size="70"
                     style="margin: 5% auto; width: 66%; height: 70px;" placeholder="Enter Number Of Students Enrolled"
-                    [(ngModel)]="course.studentCount" formControlName="StudentCount">
+                    [(ngModel)]="course.countOfStudent" formControlName="CountOfStudent">
 
                 <div class="form-group">
                     <textarea class="form-control" placeholder="Enter Course Description" rows="3"
-                        [(ngModel)]="course.description" formControlName="Description"></textarea>
+                        [(ngModel)]="course.descriptionOfCourse" formControlName="DescriptionOfCourse"></textarea>
                 </div>
 
                 <div style="display:flex; justify-content: space-between;">

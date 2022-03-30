@@ -21,11 +21,11 @@ export class CourseComponent implements OnInit {
   }
 
   reactiveForm = new FormGroup({
-    CourseName: new FormControl(['', Validators.required]),
-    CourseSpan: new FormControl(['', Validators.required]),
-    CourseTime: new FormControl(['', Validators.required]),
-    StudentCount: new FormControl(['', Validators.required]),
-    Description: new FormControl(['', Validators.required])
+    nameOfCourse: new FormControl(['', Validators.required]),
+    spanOfCourse: new FormControl(['', Validators.required]),
+    timeOfCourse: new FormControl(['', Validators.required]),
+    countOfStudent: new FormControl(['', Validators.required]),
+    descriptionOfCourse: new FormControl(['', Validators.required])
 
   })
 
