@@ -31,7 +31,7 @@ export class EditcourseComponent implements OnInit {
     )
   }
 
-  logout() {
+  LogoutSession() {
     sessionStorage.removeItem('value');
     this.route.navigateByUrl('/login')
   }
