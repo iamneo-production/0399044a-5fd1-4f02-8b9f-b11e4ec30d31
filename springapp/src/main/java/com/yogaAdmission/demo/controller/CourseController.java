@@ -28,7 +28,7 @@ public class CourseController {
 		return service.saveCourse(course);
 	}
 	
-	@GetMapping("admin/viewCourse")
+	@GetMapping("admin/searchCourse")
 	public List<Course> findCourse(){
 		return service.showCourse();
 	}
@@ -43,7 +43,7 @@ public class CourseController {
 			service.deleteCourse(id);	
 	}
 	
-	@GetMapping("/admin/getCourse")
+	@GetMapping("/admin/viewCourse")
 	public Optional<Course> getCourseById(@RequestParam int id) {
 		return service.getCourseId(id);
 	}
