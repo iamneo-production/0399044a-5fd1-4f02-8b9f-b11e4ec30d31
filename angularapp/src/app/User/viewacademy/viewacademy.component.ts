@@ -27,11 +27,11 @@ export class ViewacademyComponent implements OnInit {
     })
   }
 
-  search() {
+  searchUser() {
     alert("Search Not Found, Search for Appropriate Academy");
   }
 
-  logout() {
+  logoutUser() {
     sessionStorage.removeItem('value');
     this.route.navigateByUrl('/login')
   }
