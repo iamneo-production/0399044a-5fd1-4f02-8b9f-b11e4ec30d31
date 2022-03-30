@@ -33,7 +33,7 @@ public class CourseController {
 		return service.showCourse();
 	}
 	
-	@PutMapping("/admin/editCourse/{courseId}")
+	@PutMapping("/admin/updateCourse")
 	public Course updateCourse(@RequestBody Course course){
 		return service.updateCourse(course);
 	}
