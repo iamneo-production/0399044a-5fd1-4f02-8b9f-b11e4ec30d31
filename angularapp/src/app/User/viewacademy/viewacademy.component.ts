@@ -37,3 +37,5 @@ export class ViewacademyComponent implements OnInit {
   }
 
 }
+
+
