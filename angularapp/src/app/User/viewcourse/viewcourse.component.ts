@@ -30,11 +30,11 @@ export class ViewcourseComponent implements OnInit {
     )
   }
 
-  searchUser() {
+  search() {
     alert("Search Not Found, Search for Appropriate Course")
   }
 
-  enroll(id: number) {
+  enrollUser(id: number) {
     var today = new Date();
     var date = today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear();
     this.courseService.getCourseById(id).subscribe({
@@ -59,7 +59,7 @@ export class ViewcourseComponent implements OnInit {
 
   }
 
-  logout() {
+  logoutUser() {
     sessionStorage.removeItem('value');
     this.route.navigateByUrl('/login')
   }
